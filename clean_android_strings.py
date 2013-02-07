@@ -4,10 +4,10 @@ import re
 def clean_android_string(android_string):
 	#\\" -> \" 
 	transformed = re.sub(r'\\\\"', '\\"', android_string) 
-	#... -> ellipse
-	transformed = re.sub(r'\.\.\.', '&#8230;', transformed) 
+	#... -> ellipse, remove whitespaces before ellipse
+	transformed = re.sub(r'\s*\.\.\.', '&#8230;', transformed) 
 	#trim whitespace around \n
-	transformed = re.sub(r'\s*\\n\s*', re.escape('\\') + 'n', transformed) 
+	transformed = re.sub(r'\s*\\n\s*', re.escape('\\') + 'n', transformed)
 	#place quotes around strings inside xml tags that do not have them
 	transformed = re.sub(r'\"?</string>', '\"</string>', transformed) 
 	transformed = re.sub(r'">"?', '">"', transformed)
