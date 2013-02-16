@@ -63,7 +63,7 @@ def main(argv):
 	   run_all_tests()
 	   sys.exit(0)
 
-	if num_args != 3 and num_args != 1:
+	if num_args != 2:
 		print 'Cleans an Android strings.xml'
 		print 'Usage: <input.xml> <output.xml>'
 		print '   or'
